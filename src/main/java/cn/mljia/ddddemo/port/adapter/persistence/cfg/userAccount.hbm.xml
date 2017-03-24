@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field"
+	default-cascade="all">
+	<class name="cn.mljia.ddddemo.domain.UserAccount"
+		table="tb_ddddemo_user_account" lazy="true">
+
+		<id name="id" column="ID" type="long" unsaved-value="-1">
+			<generator class="native" />
+		</id>
+
+		<version name="concurrencyVersion" column="CONCURRENCY_VERSION" type="int" />
+
+		<property name="accountId" column="ACCOUNT_ID" type="string" length="32" />
+
+		<property name="userName" column="USER_NAME" type="string" length="50" />
+
+		<property name="age" column="AGE" type="int" length="11" />
+
+		<property name="password" column="PASSWORD" type="string" length="50" />
+
+		<property name="loginNum" column="LOGIN_NUM" type="int" length="11" />
+ 
+		<property name="createTime" column="CREATE_TIME" type="timestamp" />
+
+		<property name="modifyTime" column="MODIFY_TIME" type="timestamp" />
+		
+		<component name="address" class="cn.mljia.ddddemo.domain.Address">
+			<property name="province" column="PROVINCE" type="string" />
+			<property name="city" column="CITY" type="string" />
+			<property name="area" column="AREA" type="string" />
+		</component>
+		 
+	</class>
+</hibernate-mapping>
