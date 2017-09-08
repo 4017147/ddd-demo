@@ -1,0 +1,1 @@
+如不需要集成disconf则config目录下配置文件放在项目resources目录下面即可，然后去掉disconf配置依赖
