@@ -15,16 +15,9 @@ public class LoginStatisticsListener extends ExchangeListener {
 	@Resource
 	private UserAccountApplicatoin accountApplicatoin;
 
-	public LoginStatisticsListener(RabbitmqConfiguration rabbitmqConfiguration,
-			HibernateTransactionManager hibernateTransactionManager, ConsumedEventStore consumedEventStore) {
+	public LoginStatisticsListener(RabbitmqConfiguration rabbitmqConfiguration, HibernateTransactionManager hibernateTransactionManager, ConsumedEventStore consumedEventStore) {
 		super(rabbitmqConfiguration, hibernateTransactionManager, consumedEventStore);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public String exchangeName() {
-		// TODO Auto-generated method stub
-		return "cn.mljia.ddddemo.domain.UserAccountLoginEvent";
 	}
 
 	@Override
@@ -38,8 +31,7 @@ public class LoginStatisticsListener extends ExchangeListener {
 		String userName = reader.eventStringValue("userName");
 		long notificationId = reader.notificationId();
 
-		System.out.println(
-				"accountId:" + accountId + "------userName:" + userName + "-------notificationId:" + notificationId);
+		System.out.println("accountId:" + accountId + "------userName:" + userName + "-------notificationId:" + notificationId);
 
 		// 做相关业务
 		accountApplicatoin.loginStatistics(accountId);
@@ -49,6 +41,12 @@ public class LoginStatisticsListener extends ExchangeListener {
 	public String[] listensTo() {
 		// TODO Auto-generated method stub
 		return new String[] { "cn.mljia.ddddemo.domain.UserAccountLoginEvent" };
+	}
+
+	@Override
+	protected String packageName() {
+		// TODO Auto-generated method stub
+		return this.getClass().getPackage().getName();
 	}
 
 }
