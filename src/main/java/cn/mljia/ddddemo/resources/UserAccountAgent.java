@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.mljia.common.CodeType;
-import cn.mljia.common.TResult;
 import cn.mljia.ddd.common.serializer.ObjectSerializer;
 import cn.mljia.ddddemo.application.UserAccountApplicatoin;
 import cn.mljia.ddddemo.application.command.LoginCommand;
