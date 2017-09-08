@@ -97,14 +97,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>cn.mljia.component</groupId>
-			<artifactId>cn.mljia.component.util</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-
-
+ 
 	</dependencies>
 
 
